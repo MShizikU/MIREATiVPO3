@@ -109,7 +109,7 @@ class PerformUserInputTest {
         expectedAlphabet.set(18, '_');
 
         assert resultedEquipment != null;
-        assertEquals(expectedAlphabet, resultedEquipment.alphabet);
+        assertIterableEquals(expectedAlphabet, resultedEquipment.alphabet);
     }
 
     @Test
@@ -121,7 +121,7 @@ class PerformUserInputTest {
         ArrayList<Character> expectedAlphabet = basicEquipment.alphabet;
 
         assert resultedEquipment != null;
-        assertEquals(expectedAlphabet, resultedEquipment.alphabet);
+        assertIterableEquals(expectedAlphabet, resultedEquipment.alphabet);
     }
 
     @Test
@@ -134,6 +134,72 @@ class PerformUserInputTest {
         expectedAlphabet.set(18, '_');
 
         assert resultedEquipment != null;
-        assertEquals(expectedAlphabet, resultedEquipment.alphabet);
+        assertIterableEquals(expectedAlphabet, resultedEquipment.alphabet);
+    }
+
+    @Test
+    void testUpdateUserWordMiddle(){
+
+        basicEquipment.hiddenWord.add('к');
+        basicEquipment.hiddenWord.add('о');
+        basicEquipment.hiddenWord.add('ш');
+        basicEquipment.hiddenWord.add('к');
+        basicEquipment.hiddenWord.add('а');
+
+        Character userInput = 'ш';
+
+        for (int i = 0; i < basicEquipment.hiddenWord.size(); i++) basicEquipment.userWord.add('_');
+
+        ArrayList<Character> expected = basicEquipment.userWord;
+        expected.set(2, userInput);
+
+        Equipment result = PerformUserInput.updateUserWord(basicEquipment, userInput);
+
+        assert result != null;
+        assertIterableEquals(expected, result.userWord);
+    }
+
+    @Test
+    void testUpdateUserWordFirst(){
+
+        basicEquipment.hiddenWord.add('к');
+        basicEquipment.hiddenWord.add('о');
+        basicEquipment.hiddenWord.add('ш');
+        basicEquipment.hiddenWord.add('к');
+        basicEquipment.hiddenWord.add('а');
+
+        Character userInput = 'к';
+
+        for (int i = 0; i < basicEquipment.hiddenWord.size(); i++) basicEquipment.userWord.add('_');
+
+        ArrayList<Character> expected = basicEquipment.userWord;
+        expected.set(2, userInput);
+
+        Equipment result = PerformUserInput.updateUserWord(basicEquipment, userInput);
+
+        assert result != null;
+        assertIterableEquals(expected, result.userWord);
+    }
+
+    @Test
+    void testUpdateUserWordLast(){
+
+        basicEquipment.hiddenWord.add('к');
+        basicEquipment.hiddenWord.add('о');
+        basicEquipment.hiddenWord.add('ш');
+        basicEquipment.hiddenWord.add('к');
+        basicEquipment.hiddenWord.add('а');
+
+        Character userInput = 'а';
+
+        for (int i = 0; i < basicEquipment.hiddenWord.size(); i++) basicEquipment.userWord.add('_');
+
+        ArrayList<Character> expected = basicEquipment.userWord;
+        expected.set(2, userInput);
+
+        Equipment result = PerformUserInput.updateUserWord(basicEquipment, userInput);
+
+        assert result != null;
+        assertIterableEquals(expected, result.userWord);
     }
 }
