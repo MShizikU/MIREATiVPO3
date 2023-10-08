@@ -2,9 +2,7 @@ package test.tdd;
 
 import code.Equipment;
 import code.tdd.PerformUserInput;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.util.ArrayList;
@@ -12,7 +10,6 @@ import java.util.Collection;
 import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 class PerformUserInputTest {
 
     Equipment basicEquipment;
@@ -27,6 +24,7 @@ class PerformUserInputTest {
         for (int i = 1072; i <= 1103; i++) basicEquipment.alphabet.add( (char) i );
     }
 
+    @Test
     void testIsLetterInWordMiddleTrue(){
         basicEquipment.hiddenWord.add('к');
         basicEquipment.hiddenWord.add('о');
@@ -34,13 +32,14 @@ class PerformUserInputTest {
         basicEquipment.hiddenWord.add('к');
         basicEquipment.hiddenWord.add('а');
 
-        Character userInput = 'а';
+        Character userInput = 'ш';
 
         Boolean isLetterInWord = PerformUserInput.isLetterInWord(basicEquipment, userInput);
 
         assertEquals(true, isLetterInWord);
     }
 
+    @Test
     void testIsLetterInWordFirstTrue(){
         basicEquipment.hiddenWord.add('м');
         basicEquipment.hiddenWord.add('ы');
@@ -55,6 +54,7 @@ class PerformUserInputTest {
         assertEquals(true, isLetterInWord);
     }
 
+    @Test
     void testIsLetterInWordLastTrue(){
 
         basicEquipment.hiddenWord.add('х');
@@ -67,5 +67,35 @@ class PerformUserInputTest {
         Boolean isLetterInWord = PerformUserInput.isLetterInWord(basicEquipment, userInput);
 
         assertEquals(true, isLetterInWord);
+    }
+
+    @Test
+    void testIsLetterInWordEnFalse(){
+        basicEquipment.hiddenWord.add('к');
+        basicEquipment.hiddenWord.add('о');
+        basicEquipment.hiddenWord.add('ш');
+        basicEquipment.hiddenWord.add('к');
+        basicEquipment.hiddenWord.add('а');
+
+        Character userInput = 'a';
+
+        Boolean isLetterInWord = PerformUserInput.isLetterInWord(basicEquipment, userInput);
+
+        assertEquals(false, isLetterInWord);
+    }
+
+    @Test
+    void testIsLetterInWordFalse(){
+        basicEquipment.hiddenWord.add('к');
+        basicEquipment.hiddenWord.add('о');
+        basicEquipment.hiddenWord.add('ш');
+        basicEquipment.hiddenWord.add('к');
+        basicEquipment.hiddenWord.add('а');
+
+        Character userInput = 'ы';
+
+        Boolean isLetterInWord = PerformUserInput.isLetterInWord(basicEquipment, userInput);
+
+        assertEquals(false, isLetterInWord);
     }
 }
