@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Equipment {
 
-    ArrayList<Character> hiddenWord;
-    ArrayList<Character> alphabet;
-    ArrayList<Character> userWord;
+    public ArrayList<Character> hiddenWord;
+    public ArrayList<Character> alphabet;
+    public ArrayList<Character> userWord;
 
 }
