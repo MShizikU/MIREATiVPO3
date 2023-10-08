@@ -111,4 +111,29 @@ class PerformUserInputTest {
         assert resultedEquipment != null;
         assertEquals(expectedAlphabet, resultedEquipment.alphabet);
     }
+
+    @Test
+    void testRemoveLetterFromAlphabetUnexistLetter(){
+        Character userInput = 'b';
+
+        Equipment resultedEquipment = PerformUserInput.removeLetterFromAlphabet(basicEquipment, userInput);
+
+        ArrayList<Character> expectedAlphabet = basicEquipment.alphabet;
+
+        assert resultedEquipment != null;
+        assertEquals(expectedAlphabet, resultedEquipment.alphabet);
+    }
+
+    @Test
+    void testRemoveLetterFromAlphabetDeletedLetter(){
+        Character userInput = 'б';
+
+        Equipment resultedEquipment = PerformUserInput.removeLetterFromAlphabet(basicEquipment, userInput);
+
+        ArrayList<Character> expectedAlphabet = basicEquipment.alphabet;
+        expectedAlphabet.set(18, '_');
+
+        assert resultedEquipment != null;
+        assertEquals(expectedAlphabet, resultedEquipment.alphabet);
+    }
 }
