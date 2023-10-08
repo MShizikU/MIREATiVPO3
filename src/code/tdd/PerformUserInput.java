@@ -9,15 +9,15 @@ import code.Equipment;
  */
 public class PerformUserInput {
 
-    public Boolean isLetterInWord(Equipment equipment, Character userInput){
+    public static Boolean isLetterInWord(Equipment equipment, Character userInput){
         return null;
     }
 
-    public Equipment removeLetterFromAlphabet(Equipment equipment, Character userInput){
+    public static Equipment removeLetterFromAlphabet(Equipment equipment, Character userInput){
         return null;
     }
 
-    public Equipment updateUserWord(Equipment equipment, Character userInput){
+    public static Equipment updateUserWord(Equipment equipment, Character userInput){
         return null;
     }
 
