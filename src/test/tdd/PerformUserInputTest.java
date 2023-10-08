@@ -98,4 +98,17 @@ class PerformUserInputTest {
 
         assertEquals(false, isLetterInWord);
     }
+
+    @Test
+    void testRemoveLetterFromAlphabet(){
+        Character userInput = 'с';
+
+        Equipment resultedEquipment = PerformUserInput.removeLetterFromAlphabet(basicEquipment, userInput);
+
+        ArrayList<Character> expectedAlphabet = basicEquipment.alphabet;
+        expectedAlphabet.set(18, '_');
+
+        assert resultedEquipment != null;
+        assertEquals(expectedAlphabet, resultedEquipment.alphabet);
+    }
 }
