@@ -10,8 +10,8 @@ import code.Equipment;
 public class PerformUserInput {
 
     public static Boolean isLetterInWord(Equipment equipment, Character userInput){
-        for (int i = 0; i < equipment.userWord.size(); i++){
-            if (equipment.userWord.get(i).equals(userInput)){
+        for (int i = 0; i < equipment.hiddenWord.size(); i++){
+            if (equipment.hiddenWord.get(i).equals(userInput)){
                 return true;
             }
         }
