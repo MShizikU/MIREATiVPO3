@@ -6,7 +6,6 @@ public class Equipment {
 
     ArrayList<Character> hiddenWord;
     ArrayList<Character> alphabet;
-
     ArrayList<Character> userWord;
 
 }
