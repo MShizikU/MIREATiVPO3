@@ -19,7 +19,12 @@ public class PerformUserInput {
     }
 
     public static Equipment removeLetterFromAlphabet(Equipment equipment, Character userInput){
-        return null;
+        for (int i = 0; i < equipment.alphabet.size(); i++){
+            if (equipment.alphabet.get(i).equals(userInput)){
+                equipment.alphabet.set(i, '_');
+            }
+        }
+        return equipment;
     }
 
     public static Equipment updateUserWord(Equipment equipment, Character userInput){
