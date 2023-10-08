@@ -15,7 +15,7 @@ public class PerformUserInput {
                 return true;
             }
         }
-        return null;
+        return false;
     }
 
     public static Equipment removeLetterFromAlphabet(Equipment equipment, Character userInput){
