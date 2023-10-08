@@ -194,7 +194,7 @@ class PerformUserInputTest {
         for (int i = 0; i < basicEquipment.hiddenWord.size(); i++) basicEquipment.userWord.add('_');
 
         ArrayList<Character> expected = new ArrayList<>(basicEquipment.userWord);
-        expected.set(5, userInput);
+        expected.set(4, userInput);
 
         Equipment result = PerformUserInput.updateUserWord(basicEquipment, userInput);
 
@@ -216,7 +216,8 @@ class PerformUserInputTest {
         for (int i = 0; i < basicEquipment.hiddenWord.size(); i++) basicEquipment.userWord.add('_');
 
         ArrayList<Character> expected = basicEquipment.userWord;
-        expected.set(2, userInput);
+        expected.set(0, userInput);
+        expected.set(3, userInput);
 
         Equipment result = PerformUserInput.updateUserWord(basicEquipment, userInput);
 
