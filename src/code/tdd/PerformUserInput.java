@@ -31,7 +31,6 @@ public class PerformUserInput {
         for (int i = 0; i < equipment.hiddenWord.size(); i++){
             if (equipment.hiddenWord.get(i).equals(userInput)){
                 equipment.userWord.set(i, userInput);
-                break;
             }
         }
         return equipment;
